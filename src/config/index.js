@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const config = {
-    port: process.env.port
+    port: process.env.port || 3000
 }
 
 module.exports = config
