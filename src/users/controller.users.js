@@ -7,7 +7,13 @@ const router = Router()
 router.get('/', async (req, res) => {
 
     try {
-        const users = await User.find()
+        const response = await User.find()
+        //Mapeo la respuesta
+        const users = response.map(({name,lastname}) => ({
+                name,
+                lastname
+        }))
+
         res.json({message: (users)})        
     } catch (error) {
         res.status(400).json({error})
@@ -32,6 +38,11 @@ router.post('/', async (req, res) => {
     catch (error) {
         res.status(400).json({error})
     }
+})
+
+router.delete('/', async (req, res) => {
+    await User.deleteMany()
+    res.json({message: 'Todos los usuarios fueron eliminados'})
 })
 
 module.exports = router
