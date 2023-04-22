@@ -1,10 +1,12 @@
 const express= require ('express')
 const router = require('./router')
 const mongoose = require('mongoose')
+const morgan = require('morgan')
 
 const app = express()
 
 app.use(express.json())
+app.use(morgan('dev')) //consola de desarrollo
 
 router(app)
 

@@ -1,0 +1,22 @@
+[
+    {
+        "tittle": "PS4",
+        "description": "PS4",
+        "price": 399
+    },
+    {
+        "tittle": "PS5",
+        "description": "PS5",
+        "price": 899
+    },
+    {
+        "tittle": "XBOX",
+        "description": "XBOX",
+        "price": 699
+    },
+    {
+        "tittle": "NINTENDO SWITCH",
+        "description": "NINTENDO SWITCH",
+        "price": 499
+    }      
+]

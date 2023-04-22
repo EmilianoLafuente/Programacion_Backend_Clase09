@@ -1,5 +1,6 @@
 const {Router} = require('express')
-const User = require('../models/Users.model')
+const UserDao = require('../class/User.dao.js')
+const User = new UserDao()
 
 const router = Router()
 
@@ -24,16 +25,15 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const {name, lastname} = req.body
-
+        
         const newUser = {
             name,
             lastname
         }
-
-        const response = await User.create(newUser)
-        res.json(response)
         
-        console.log(response.toString());
+        const response = await User.create(newUser)
+        res.json(response)       
+        //console.log(response.toString());
     } 
     catch (error) {
         res.status(400).json({error})
@@ -41,8 +41,8 @@ router.post('/', async (req, res) => {
 })
 
 router.delete('/', async (req, res) => {
-    await User.deleteMany()
-    res.json({message: 'Todos los usuarios fueron eliminados'})
-})
+    response = await User.delete()
+    res.json({response})
+    })
 
 module.exports = router
