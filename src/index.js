@@ -2,6 +2,8 @@ const express= require ('express')
 const router = require('./router')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
+const {db} = require('./config/index')
+const {userDb,passDb} = db
 
 const app = express()
 
@@ -10,8 +12,7 @@ app.use(morgan('dev')) //consola de desarrollo
 
 router(app)
 
-//mongoose.connect('mongodb+srv://admin:admin@cluster0.nbnuujb.mongodb.net/?retryWrites=true&w=majority');
-mongoose.connect('mongodb+srv://admin:admin@cluster0.dyg6rbn.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect(`mongodb+srv://${userDb}:${passDb}@cluster0.dyg6rbn.mongodb.net/?retryWrites=true&w=majority`);
 
 mongoose.connection.once('open', () => {
     console.log('Successfully connected to DB');

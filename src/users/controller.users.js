@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const UserDao = require('../class/User.dao.js')
+const UserDao = require('..//dao/User.dao')
 const User = new UserDao()
 
 const router = Router()
